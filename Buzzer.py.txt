@@ -1,0 +1,17 @@
+# main.py -- put your code here!
+#buzzer
+from machine import Pin, PWM
+import time
+
+#make buzzer sound
+buzzer = PWM(Pin(19), freq=1000, duty=512)
+time.sleep(1) #wait 1 second
+
+#increase buzzer volume gradually
+for i in range(0, 1024, 10):
+    buzzer.duty(i)
+    time.sleep(0.01)
+buzzer.deinit() #stop buzzer sound 
+
+
+
